@@ -1,64 +1,72 @@
 /* =========================================================
    Instagram ギャラリーの中身
 
-   写真を assets/img/insta/ に置いて、下の items に追加してください。
-   並び順はこのファイルの上にあるものほど先に表示されます（新しい順推奨）。
+   このファイルは scripts/sync-instagram.mjs によって
+   自動生成されています。手で編集しても次回の同期で
+   上書きされるのでご注意ください。
 
-   1件の書き方:
-     {
-       image:   "assets/img/insta/01.jpg",              ← 写真のファイル
-       link:    "https://www.instagram.com/p/XXXXX/",   ← 投稿のURL（無ければプロフィールURLでOK）
-       caption: "今夜も元気に営業中です",                  ← ひとこと（空でもOK）
-       date:    "2026-07-28"                            ← 投稿日（空でもOK）
-     },
-
-   ※ 行末のカンマを消さないように気をつけてください。
-     最後の1件だけカンマ不要です（あっても問題ありません）。
+   最終更新: 2026-08-24 16:38 UTC
    ========================================================= */
 
 window.INSTAGRAM_FEED = {
 
-  /* プロフィールのURLとID */
   profile:  "https://www.instagram.com/fratt2370313/",
   username: "fratt2370313",
 
-  /* 写真の一覧 */
   items: [
     {
-      image:   "assets/img/insta/01.jpg",
-      link:    "https://www.instagram.com/fratt2370313/",
-      caption: "今夜も元気に営業中です",
-      date:    "2026-07-28"
+      image:   "assets/img/insta/ig-17977103387902657.jpg",
+      link:    "https://www.instagram.com/p/Db2qQRSj9IU/",
+      caption: "🌿",
+      date:    "2026-08-10"
     },
     {
-      image:   "assets/img/insta/02.jpg",
-      link:    "https://www.instagram.com/fratt2370313/",
-      caption: "カウンターでゆったり一杯",
-      date:    "2026-07-25"
+      image:   "assets/img/insta/ig-18089922590428331.jpg",
+      link:    "https://www.instagram.com/p/DbktHuMP_ti/",
+      caption: "",
+      date:    "2026-08-03"
     },
     {
-      image:   "assets/img/insta/03.jpg",
-      link:    "https://www.instagram.com/fratt2370313/",
-      caption: "常連さんとカラオケ大会",
-      date:    "2026-07-22"
+      image:   "assets/img/insta/ig-18184012276399366.jpg",
+      link:    "https://www.instagram.com/p/Dasihs3PEjK/",
+      caption: "七夕🎋浴衣DAY",
+      date:    "2026-07-12"
     },
     {
-      image:   "assets/img/insta/04.jpg",
-      link:    "https://www.instagram.com/fratt2370313/",
-      caption: "新しいボトル入荷しました",
-      date:    "2026-07-19"
-    },
-    {
-      image:   "assets/img/insta/05.jpg",
-      link:    "https://www.instagram.com/fratt2370313/",
-      caption: "スタッフみんなでお出迎え",
-      date:    "2026-07-15"
-    },
-    {
-      image:   "assets/img/insta/06.jpg",
-      link:    "https://www.instagram.com/fratt2370313/",
-      caption: "誕生日のお祝いも承ります",
+      image:   "assets/img/insta/ig-17985491067001582.jpg",
+      link:    "https://www.instagram.com/reel/DapJAhYvxvB/",
+      caption: "七夕祭り",
       date:    "2026-07-11"
+    },
+    {
+      image:   "assets/img/insta/ig-18077047553326790.jpg",
+      link:    "https://www.instagram.com/p/DanNo66PpgQ/",
+      caption: "ふらっと・Rinon",
+      date:    "2026-07-10"
+    },
+    {
+      image:   "assets/img/insta/ig-17866179366635522.jpg",
+      link:    "https://www.instagram.com/p/DafhQBXy1ZN/",
+      caption: "フォロー宜しくお願い致します🌿",
+      date:    "2026-07-07"
+    },
+    {
+      image:   "assets/img/insta/ig-17941149750197896.jpg",
+      link:    "https://www.instagram.com/p/DX3rykxDz67/",
+      caption: "",
+      date:    "2026-05-03"
+    },
+    {
+      image:   "assets/img/insta/ig-18098548174805003.jpg",
+      link:    "https://www.instagram.com/reel/DWTB45WD2iA/",
+      caption: "🌷",
+      date:    "2026-03-25"
+    },
+    {
+      image:   "assets/img/insta/ig-18101481367929075.jpg",
+      link:    "https://www.instagram.com/p/DV27JPEjyqX/",
+      caption: "🎊",
+      date:    "2026-03-14"
     }
   ]
 };
