@@ -1,0 +1,118 @@
+name: Instagram を同期
+
+# 毎日 日本時間の朝6時に自動実行します。
+# すぐ動かしたいときは Actions タブ →「Instagram を同期」→「Run workflow」。
+on:
+  schedule:
+    - cron: '0 21 * * *'   # UTC 21:00 = 日本時間 翌 6:00
+  workflow_dispatch:
+
+permissions:
+  contents: write   # サイトの更新をコミットするため
+  issues: write     # トークン期限切れをお知らせするため
+
+concurrency:
+  group: instagram-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: Node.js を用意
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # ===================================================
+      # 1. Instagram から投稿を取得してサイトを更新する
+      # ===================================================
+      - name: Instagram の投稿を取得
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+          INSTAGRAM_LIMIT: '9'
+        run: node scripts/sync-instagram.mjs
+
+      - name: 変更があればコミットする
+        run: |
+          set -e
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A assets/data/instagram.js assets/img/insta
+
+          if git diff --cached --quiet; then
+            echo "新しい投稿はありませんでした。"
+          else
+            git commit -m "Instagram の投稿を同期 ($(TZ=Asia/Tokyo date '+%Y-%m-%d'))"
+            git pull --rebase --autostash
+            git push
+            echo "サイトを更新しました。"
+          fi
+
+      # ===================================================
+      # 2. トークンを延長する（60日で切れるので毎日延長）
+      # ===================================================
+      - name: GH_PAT が登録されているか確認
+        id: pat
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          if [ -n "$GH_PAT" ]; then
+            echo "has=true" >> "$GITHUB_OUTPUT"
+            echo "GH_PAT あり → トークンを自動更新します。"
+          else
+            echo "has=false" >> "$GITHUB_OUTPUT"
+            echo "GH_PAT なし → 延長はしますが Secret への保存は行いません。"
+          fi
+
+      - name: トークンを延長
+        id: refresh
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+        run: node scripts/refresh-token.mjs > /dev/null
+
+      - name: 新しいトークンを Secret に保存
+        if: steps.pat.outputs.has == 'true'
+        env:
+          GH_TOKEN:  ${{ secrets.GH_PAT }}
+          NEW_TOKEN: ${{ steps.refresh.outputs.token }}
+        run: |
+          printf '%s' "$NEW_TOKEN" | gh secret set INSTAGRAM_TOKEN --repo "$GITHUB_REPOSITORY"
+          echo "INSTAGRAM_TOKEN を更新しました。次回も自動で延長されます。"
+
+      # ===================================================
+      # 3. 自動更新できていない状態で期限が近ければ知らせる
+      # ===================================================
+      - name: 期限が近ければ Issue でお知らせ
+        if: steps.pat.outputs.has == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DAYS: ${{ steps.refresh.outputs.expires_days }}
+        run: |
+          set -e
+          if [ -z "$DAYS" ] || [ "$DAYS" -ge 15 ]; then
+            echo "残り ${DAYS:-?} 日。まだ余裕があります。"
+            exit 0
+          fi
+
+          TITLE="Instagram のトークンの期限が近づいています"
+          if gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "$TITLE in:title" | grep -q .; then
+            echo "すでにお知らせ済みです。"
+            exit 0
+          fi
+
+          gh issue create --repo "$GITHUB_REPOSITORY" --title "$TITLE" --body "$(cat <<EOF
+          Instagram の長期トークンの残り期限が約 ${DAYS} 日になりました。
+
+          README の「Instagram を自動連携する」の手順でトークンを取り直し、
+          Settings → Secrets and variables → Actions の \`INSTAGRAM_TOKEN\` を更新してください。
+
+          なお \`GH_PAT\` を登録しておくと以降はトークンが自動で延長され、
+          このお知らせは出なくなります（README の「ずっと放置できるようにする」参照）。
+          EOF
+          )"
