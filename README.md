@@ -11,7 +11,7 @@ snack-fratt/
 ├─ index.html                  ← トップページ
 ├─ system.html                 ← 料金システム
 ├─ gallery.html                ← 店内・写真
-├─ recruit.html                ← 女子求人
+├─ recruit.html                ← 求人
 ├─ link.html                   ← 姉妹店のご紹介
 ├─ access.html                 ← アクセス
 ├─ contact.html                ← お問い合わせ
