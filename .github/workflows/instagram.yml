@@ -68,7 +68,16 @@ jobs:
             echo "新しい投稿はありませんでした。"
           else
             git commit -m "Instagram の投稿を同期 ($(TZ=Asia/Tokyo date '+%Y-%m-%d'))"
-            git pull --rebase --autostash
+
+            # instagram.js は毎回まるごと作り直す生成ファイルなので、
+            # リモートが先に進んでいた場合は今回の生成結果を優先します（-X theirs）。
+            if ! git pull --rebase -X theirs --autostash; then
+              git rebase --abort || true
+              echo "リモートとの統合に失敗したため、今回は中止しました。"
+              echo "次回の実行時に最新の状態から取り直されます。"
+              exit 0
+            fi
+
             git push
             echo "サイトを更新しました。"
           fi
