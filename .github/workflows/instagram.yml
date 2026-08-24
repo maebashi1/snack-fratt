@@ -20,10 +20,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # INSTAGRAM_TOKEN をまだ登録していない間は、何もせず正常終了します。
+      # （毎日エラー通知が届くのを防ぐためです）
+      - name: INSTAGRAM_TOKEN が登録されているか確認
+        id: token
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+        run: |
+          if [ -n "$INSTAGRAM_TOKEN" ]; then
+            echo "has=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has=false" >> "$GITHUB_OUTPUT"
+            echo "INSTAGRAM_TOKEN が未登録のため、今回は何もしません。"
+            echo "自動連携を使う場合は README の「Instagram を自動連携する」をご覧ください。"
+          fi
+
       - name: リポジトリを取得
+        if: steps.token.outputs.has == 'true'
         uses: actions/checkout@v4
 
       - name: Node.js を用意
+        if: steps.token.outputs.has == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -32,12 +49,14 @@ jobs:
       # 1. Instagram から投稿を取得してサイトを更新する
       # ===================================================
       - name: Instagram の投稿を取得
+        if: steps.token.outputs.has == 'true'
         env:
           INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
           INSTAGRAM_LIMIT: '9'
         run: node scripts/sync-instagram.mjs
 
       - name: 変更があればコミットする
+        if: steps.token.outputs.has == 'true'
         run: |
           set -e
           git config user.name  "github-actions[bot]"
@@ -59,6 +78,7 @@ jobs:
       # ===================================================
       - name: GH_PAT が登録されているか確認
         id: pat
+        if: steps.token.outputs.has == 'true'
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
@@ -72,12 +92,13 @@ jobs:
 
       - name: トークンを延長
         id: refresh
+        if: steps.token.outputs.has == 'true'
         env:
           INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
         run: node scripts/refresh-token.mjs > /dev/null
 
       - name: 新しいトークンを Secret に保存
-        if: steps.pat.outputs.has == 'true'
+        if: steps.token.outputs.has == 'true' && steps.pat.outputs.has == 'true'
         env:
           GH_TOKEN:  ${{ secrets.GH_PAT }}
           NEW_TOKEN: ${{ steps.refresh.outputs.token }}
@@ -89,7 +110,7 @@ jobs:
       # 3. 自動更新できていない状態で期限が近ければ知らせる
       # ===================================================
       - name: 期限が近ければ Issue でお知らせ
-        if: steps.pat.outputs.has == 'false'
+        if: steps.token.outputs.has == 'true' && steps.pat.outputs.has == 'false'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DAYS: ${{ steps.refresh.outputs.expires_days }}
