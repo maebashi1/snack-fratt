@@ -220,20 +220,19 @@ GitHub にログインして「New repository」からリポジトリを作成�
 
 ### 2. このフォルダを push する
 
-VS Code のターミナル（`Ctrl` + `` ` ``）でこのフォルダを開き、次を順に実行します。`YOUR-NAME` と `snack-fratt` は自分のものに置き換えてください。
+ターミナルで次を実行します。
 
 ```bash
-git init
-git add .
-git commit -m "サイト公開"
-git branch -M main
-git remote add origin https://github.com/YOUR-NAME/snack-fratt.git
+cd ~/Documents/snack-fratt
+git remote add origin https://github.com/maebashi1/snack-fratt.git
 git push -u origin main
 ```
 
+`git init` とコミットは済ませてあるので、上の3行だけで公開できます。銀彩（`ginsai-website`）や来んしゃいと同じ `maebashi1` アカウントに置く前提です。
+
 ### 3. Pages を有効にする
 
-GitHub のリポジトリページで **Settings → Pages** を開き、Source を「Deploy from a branch」、Branch を `main` / `/ (root)` にして Save します。1〜2分待つと `https://YOUR-NAME.github.io/snack-fratt/` で公開されます。
+GitHub のリポジトリページで **Settings → Pages** を開き、Source を「Deploy from a branch」、Branch を `main` / `/ (root)` にして Save します。1〜2分待つと `https://maebashi1.github.io/snack-fratt/` で公開されます。
 
 ### 4.（任意）独自ドメインをつなぐ
 
@@ -246,7 +245,7 @@ GitHub のリポジトリページで **Settings → Pages** を開き、Source 
 185.199.111.153
 ```
 
-`www` を使う場合は CNAME レコードを `YOUR-NAME.github.io` に向けます。DNS の反映には数時間かかることがあります。設定後、Settings → Pages の「Enforce HTTPS」にチェックを入れてください。
+`www` を使う場合は CNAME レコードを `maebashi1.github.io` に向けます。DNS の反映には数時間かかることがあります。設定後、Settings → Pages の「Enforce HTTPS」にチェックを入れてください。
 
 ## 更新のしかた
 
