@@ -234,11 +234,10 @@ iframe{ border:0; display:block; }
 .hero-slide.is-active img{ transform:scale(1); }
 .hero::after{
   content:""; position:absolute; inset:0;
-  /* 文字の背後だけを暗くし、白へのなじませは一番下だけに留めています
-     （白を広く効かせると写真全体が白っぽく霞むため） */
+  /* 写真はそのまま見せ、下端だけ白になじませています。
+     文字の可読性は、下の text-shadow（文字のふちどり）で確保しています */
   background:
-    radial-gradient(56% 42% at 50% 44%, rgba(0,0,0,.58) 0%, rgba(0,0,0,.26) 60%, rgba(0,0,0,0) 100%),
-    linear-gradient(180deg, rgba(0,0,0,.34) 0%, rgba(0,0,0,.06) 32%, rgba(255,255,255,0) 82%, rgba(255,255,255,.75) 100%);
+    linear-gradient(180deg, rgba(255,255,255,0) 80%, rgba(255,255,255,.75) 100%);
   pointer-events:none;
 }
 .hero-body{
@@ -246,18 +245,27 @@ iframe{ border:0; display:block; }
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center; padding:0 20px;
 }
+/* キャッチコピーを載せる白いパネル。
+   写真の上に置くことで、写真を暗くせずに文字を読ませています */
+.hero-panel{
+  padding:clamp(22px,4vw,38px) clamp(26px,5vw,56px);
+  background:rgba(255,255,255,.90);
+  -webkit-backdrop-filter:blur(3px);
+  backdrop-filter:blur(3px);
+  border-top:3px solid var(--orange);
+  border-bottom:3px solid var(--orange);
+  box-shadow:0 10px 40px rgba(43,34,27,.22);
+}
 .hero-copy{
-  font-family:var(--font-serif); color:#fff;
+  font-family:var(--font-serif); color:var(--text);
   font-size:clamp(20px, 4.2vw, 38px);
   line-height:1.6; letter-spacing:.14em;
-  text-shadow:0 2px 18px rgba(0,0,0,.85);
 }
-.hero-copy em{ font-style:normal; color:var(--orange-light); }
+.hero-copy em{ font-style:normal; color:var(--orange-deep); }
 .hero-sub{
-  margin-top:12px; color:#f0e5da;
+  margin-top:10px; color:var(--text-muted);
   font-size:clamp(11px, 2.6vw, 13px);
   letter-spacing:.28em;
-  text-shadow:0 2px 12px rgba(0,0,0,.8);
 }
 .hero-dots{
   position:absolute; left:0; right:0; bottom:22px; z-index:3;
