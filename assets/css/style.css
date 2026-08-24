@@ -234,10 +234,11 @@ iframe{ border:0; display:block; }
 .hero-slide.is-active img{ transform:scale(1); }
 .hero::after{
   content:""; position:absolute; inset:0;
-  /* 明るい店内写真でも白文字が読めるよう、中央をしっかり暗くしています */
+  /* 文字の背後だけを暗くし、白へのなじませは一番下だけに留めています
+     （白を広く効かせると写真全体が白っぽく霞むため） */
   background:
-    radial-gradient(68% 52% at 50% 46%, rgba(0,0,0,.60) 0%, rgba(0,0,0,.34) 55%, rgba(0,0,0,.10) 100%),
-    linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.14) 50%, rgba(255,255,255,.92) 100%);
+    radial-gradient(56% 42% at 50% 44%, rgba(0,0,0,.58) 0%, rgba(0,0,0,.26) 60%, rgba(0,0,0,0) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.34) 0%, rgba(0,0,0,.06) 32%, rgba(255,255,255,0) 82%, rgba(255,255,255,.75) 100%);
   pointer-events:none;
 }
 .hero-body{
