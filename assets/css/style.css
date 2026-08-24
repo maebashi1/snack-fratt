@@ -564,6 +564,26 @@ iframe{ border:0; display:block; }
 .news-list h3{ font-size:15px; }
 .news-list p{ font-size:13px; color:var(--text-muted); margin-top:2px; }
 
+
+/* =========================================================
+   よくあるご質問
+   ========================================================= */
+.faq{ border-top:1px solid var(--line-soft); }
+.faq > div{ padding:20px 4px; border-bottom:1px solid var(--line-soft); }
+.faq dt{ font-weight:700; letter-spacing:.05em; margin-bottom:6px; }
+.faq dt::before{
+  content:"Q."; margin-right:.5em;
+  font-family:var(--font-en); font-size:1.2em; font-weight:700; color:var(--orange);
+}
+.faq dd{
+  font-size:14.5px; color:var(--text-muted);
+  padding-left:2em; text-indent:-2em;
+}
+.faq dd::before{
+  content:"A."; margin-right:.5em;
+  font-family:var(--font-en); font-size:1.2em; font-weight:700; color:var(--text);
+}
+
 /* =========================================================
    地図
    ========================================================= */
