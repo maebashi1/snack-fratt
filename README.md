@@ -60,8 +60,7 @@ bash scripts/fetch-assets.sh
 | ファイル名 | 用途 | 推奨サイズ |
 | --- | --- | --- |
 | `logo.png` | ヘッダー／フッターのロゴ | 高さ 80px 前後・背景透過 PNG |
-| `hero.jpg` | トップのスライダー1枚目 | 横 1920px 以上・横長 |
-| `shop-01.jpg` 〜 `shop-04.jpg` | 店内風景ギャラリー | 縦長（3:4）・横 1000px 程度 |
+| `shop-01.jpg` 〜 `shop-04.jpg` | トップのスライダー／店内風景ギャラリー | 横 1600px 以上。スライダーは 01・03・04 を使用 |
 | `recruit.jpg` | 求人セクションの写真 | 横 1600px 程度・横長 |
 | `rinon.jpg` | 姉妹店 Lounge Rinon のサムネイル | 16:9 |
 | `flower-01.jpg` 〜 `flower-04.jpg` | 姉妹店 NaturalBox の店内 | 正方形に近いもの |

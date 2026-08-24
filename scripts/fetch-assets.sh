@@ -28,7 +28,6 @@ download() {
 echo "旧サイトから画像を取得します → $DEST"
 
 download "$BASE/uploads/2016/06/logo.png"                              logo.png
-download "https://snack-fratt.com/wp-content/themes/cloudtpl_1150/images/banners/mainImg.jpg" hero.jpg
 download "$BASE/uploads/2016/06/image1-2.jpg"                          shop-01.jpg
 download "$BASE/uploads/2016/06/image2-2.jpg"                          shop-02.jpg
 download "$BASE/uploads/2016/06/image3-2.jpg"                          shop-03.jpg
