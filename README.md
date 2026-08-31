@@ -97,7 +97,7 @@ bash scripts/fetch-assets.sh
 料金表は `system.html` の `<dl class="price-list">`、求人条件は `recruit.html` の `<dl class="spec">` の中です。料金表は1行がこの形になっています。
 
 ```html
-<div><dt>60min</dt><dd>4,000<small>円</small><span class="sub">2名様以上 3,000円</span></dd></div>
+<div><dt>60min</dt><dd>4,000<small>円</small><span class="sub">2名様以上 3,500円</span></dd></div>
 ```
 
 `<dt>` が左のメニュー名、`<dd>` が右の大きな金額、`<span class="sub">` が金額の下に小さく出る補足です。補足が不要な行は `<span class="sub">` ごと消してください。
