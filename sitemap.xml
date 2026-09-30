@@ -107,6 +107,9 @@
       <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/rinon-03.jpg</image:loc>
     </image:image>
     <image:image>
+      <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/rinon-04.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/flower-01.jpg</image:loc>
     </image:image>
     <image:image>
@@ -119,13 +122,22 @@
       <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/flower-04.jpg</image:loc>
     </image:image>
     <image:image>
+      <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/flower-05.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/ginsai.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/ginsai-04.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/ginsai-02.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/ginsai-03.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/ginsai-05.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/kinshai.jpg</image:loc>
@@ -140,10 +152,19 @@
       <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/kinshai-04.jpg</image:loc>
     </image:image>
     <image:image>
+      <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/kinshai-05.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/kinshai-06.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/kuon.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/kuon-02.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://maebashi1.github.io/snack-fratt/assets/img/kuon-03.jpg</image:loc>
     </image:image>
   </url>
 
