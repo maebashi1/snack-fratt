@@ -12,7 +12,7 @@ snack-fratt/
 ├─ system.html                 ← 料金システム
 ├─ gallery.html                ← 店内・写真
 ├─ recruit.html                ← 求人
-├─ link.html                   ← 姉妹店のご紹介
+├─ link.html                   ← 系列店のご紹介
 ├─ access.html                 ← アクセス
 ├─ contact.html                ← お問い合わせ
 ├─ sitemap.html                ← サイトマップ
@@ -62,8 +62,8 @@ bash scripts/fetch-assets.sh
 | `logo.png` | ヘッダー／フッターのロゴ | 高さ 80px 前後・背景透過 PNG |
 | `shop-01.jpg` 〜 `shop-04.jpg` | トップのスライダー／店内風景ギャラリー | 横 1600px 以上。スライダーは 01・03・04 を使用 |
 | `recruit.jpg` | 求人セクションの写真 | 横 1600px 程度・横長 |
-| `rinon.jpg` | 姉妹店 Lounge Rinon のサムネイル | 16:9 |
-| `flower-01.jpg` 〜 `flower-04.jpg` | 姉妹店 NaturalBox の店内 | 正方形に近いもの |
+| `rinon.jpg` | 系列店 Lounge Rinon のサムネイル | 16:9 |
+| `flower-01.jpg` 〜 `flower-04.jpg` | 系列店 NaturalBox の店内 | 正方形に近いもの |
 
 写真は 1 枚あたり 300KB 以下を目安に圧縮しておくと、スマホでの表示が軽くなります。[Squoosh](https://squoosh.app/) などのブラウザツールで簡単に圧縮できます。
 
@@ -230,7 +230,7 @@ Actions タブで失敗したジョブを開くと、日本語のメッセージ
 
 ふたつ目が **独自ドメイン** です。現在の URL は `maebashi1.github.io/snack-fratt/` で、これは GitHub のドメインを間借りしている状態です。検索結果の一行目に出るサイト名がドメイン単位で決まる仕様のため「GitHub Pages documentation」と表示されてしまい、サイト側では直せません。すでにお持ちの `snack-fratt.com` をつなげば解決します（手順は下の「独自ドメインをつなぐ」）。ドメインの評価が新しいURLに引き継がれる意味でも有利です。
 
-みっつ目が **他サイトからのリンク** です。Instagram のプロフィール、Facebook ページ、姉妹店のサイト、求人媒体などにサイトのURLを貼っておいてください。数は少なくても、実在する関連サイトからのリンクは効きます。
+みっつ目が **他サイトからのリンク** です。Instagram のプロフィール、Facebook ページ、系列店のサイト、求人媒体などにサイトのURLを貼っておいてください。数は少なくても、実在する関連サイトからのリンクは効きます。
 
 ## GitHub で公開する（GitHub Pages）
 
