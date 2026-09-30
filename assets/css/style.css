@@ -762,6 +762,8 @@ iframe{ border:0; display:block; }
   .site-footer{ padding-bottom:40px; }
 
   .duo{ grid-template-columns:1fr; }
+  /* 系列店ページ：スマホでは「店名 → メイン写真 → 文章 → SNS → サブ写真」の順にそろえる */
+  .shop-duo > .duo-media{ order:-1; }
   .spec > div{ grid-template-columns:1fr; }
   .spec dt{ padding:10px 14px; }
   .spec dd{ padding:14px; }
