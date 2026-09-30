@@ -1,0 +1,7 @@
+# 検索エンジン向けの設定ファイルです。
+# ※ GitHub Pages の「maebashi1.github.io/snack-fratt/」の下に置いた robots.txt は検索エンジンに読まれません。
+#   独自ドメイン（例: snack-fratt.com）をこのサイトに向けたときに有効になります。
+User-agent: *
+Allow: /
+
+Sitemap: https://maebashi1.github.io/snack-fratt/sitemap.xml
