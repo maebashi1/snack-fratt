@@ -228,12 +228,14 @@ iframe{ border:0; display:block; }
 }
 .hero-slide.is-active{ opacity:1; }
 .hero-slide img{
-  width:100%; height:100%; object-fit:cover;
+  position:relative;
+  width:100%; height:100%;
+  /* 写真を画面いっぱいに引き伸ばすと荒く見えるため、写真は切らずに原寸以内で表示し、
+     左右の余白は同じ写真をぼかした背景（下の ::before）で埋めています */
+  object-fit:contain;
   /* 白飛び気味の店内写真でも文字が読めるよう、ごくわずかに落としています */
   filter:brightness(.85) saturate(1.05);
-  transform:scale(1.06); transition:transform 9s linear;
 }
-.hero-slide.is-active img{ transform:scale(1); }
 .hero::after{
   content:""; position:absolute; inset:0;
   /* 写真はそのまま見せ、下端だけ白になじませています。
@@ -325,7 +327,7 @@ iframe{ border:0; display:block; }
   overflow:hidden;
 }
 .band-media{ position:absolute; inset:0; }
-.band-media img{ width:100%; height:100%; object-fit:cover; opacity:.75; }
+.band-media img{ position:relative; width:100%; height:100%; object-fit:contain; opacity:.85; }
 .band::after{
   content:""; position:absolute; inset:0;
   background:linear-gradient(180deg, rgba(0,0,0,.50), rgba(0,0,0,.30));
@@ -381,7 +383,7 @@ iframe{ border:0; display:block; }
   border-bottom:3px solid var(--orange);
 }
 .page-head-media{ position:absolute; inset:0; }
-.page-head-media img{ width:100%; height:100%; object-fit:cover; opacity:.6; }
+.page-head-media img{ position:relative; width:100%; height:100%; object-fit:contain; opacity:.75; }
 .page-head::after{
   content:""; position:absolute; inset:0;
   background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.65));
@@ -774,3 +776,17 @@ iframe{ border:0; display:block; }
   .btn{ width:100%; }
   .btn-row{ flex-direction:column; }
 }
+
+/* ---------------------------------------------------------
+   写真のぼかし背景（ヒーロー・フォトバンド・ページ見出し共通）
+   写真を拡大しすぎて荒く見えないよう、写真本体は原寸以内で中央に置き、
+   周りは同じ写真を大きくぼかして敷いています。
+   HTML 側の style="background-image:url(...)" で写真を指定します。
+   --------------------------------------------------------- */
+.hero-slide, .band-media, .page-head-media{ overflow:hidden; background-size:cover; background-position:center; }
+.hero-slide::before, .band-media::before, .page-head-media::before{
+  content:""; position:absolute; inset:-40px;
+  background-image:inherit; background-size:cover; background-position:center; background-repeat:no-repeat;
+  filter:blur(28px) brightness(.7) saturate(1.1);
+}
+.hero-slide img, .band-media img, .page-head-media img{ max-width:none; }

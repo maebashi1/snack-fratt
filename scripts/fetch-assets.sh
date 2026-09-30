@@ -28,10 +28,10 @@ download() {
 echo "旧サイトから画像を取得します → $DEST"
 
 download "$BASE/uploads/2016/06/logo.png"                              logo.png
-download "$BASE/uploads/2016/06/image1-2.jpg"                          shop-01.jpg
-download "$BASE/uploads/2016/06/image2-2.jpg"                          shop-02.jpg
-download "$BASE/uploads/2016/06/image3-2.jpg"                          shop-03.jpg
-download "$BASE/uploads/2016/06/image4-2.jpg"                          shop-04.jpg
+# 差し替え済みのため取得しない: download "$BASE/uploads/2016/06/image1-2.jpg"                          shop-01.jpg
+# 差し替え済みのため取得しない: download "$BASE/uploads/2016/06/image2-2.jpg"                          shop-02.jpg
+# 差し替え済みのため取得しない: download "$BASE/uploads/2016/06/image3-2.jpg"                          shop-03.jpg
+# 差し替え済みのため取得しない: download "$BASE/uploads/2016/06/image4-2.jpg"                          shop-04.jpg
 # 差し替え済みのため取得しない: download "$BASE/uploads/2026/04/image20260424-4-1.jpg"                 recruit.jpg
 # 差し替え済みのため取得しない: download "$BASE/uploads/2026/04/image20260424-2-3.jpg"                 rinon.jpg
 # 差し替え済みのため取得しない: download "$BASE/uploads/2016/06/image1-1.jpg"                          flower-01.jpg
