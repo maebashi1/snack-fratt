@@ -63,7 +63,7 @@ bash scripts/fetch-assets.sh
 | `shop-01.jpg` 〜 `shop-04.jpg` | トップのスライダー／店内風景ギャラリー | 横 1600px 以上。スライダーは 01・03・04 を使用 |
 | `recruit.jpg` | 求人セクションの写真 | 横 1600px 程度・横長 |
 | `rinon.jpg` | 系列店 Lounge Rinon のサムネイル | 16:9 |
-| `flower-01.jpg` 〜 `flower-04.jpg` | 系列店 NaturalBox の店内 | 正方形に近いもの |
+| `flower-01.jpg` 〜 `flower-04.jpg` | 系列店 NaturalBox（01が店構えのメイン、02〜04は小さい写真） | 01は横長、02〜04は縦長 |
 
 写真は 1 枚あたり 300KB 以下を目安に圧縮しておくと、スマホでの表示が軽くなります。[Squoosh](https://squoosh.app/) などのブラウザツールで簡単に圧縮できます。
 
