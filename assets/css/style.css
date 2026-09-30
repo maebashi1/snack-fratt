@@ -67,6 +67,8 @@ body{
   padding-top:var(--header-h);
 }
 img{ max-width:100%; height:auto; display:block; }
+/* スマホだけで改行する <br class="sp-br"> */
+.sp-br{ display:none; }
 a{ color:inherit; text-decoration:none; transition:color .3s var(--ease), opacity .3s var(--ease), background-color .3s var(--ease); }
 ul,ol,dl,dd{ margin:0; padding:0; list-style:none; }
 h1,h2,h3,h4,p,figure,dl{ margin:0; }
@@ -764,6 +766,7 @@ iframe{ border:0; display:block; }
   .duo{ grid-template-columns:1fr; }
   /* 系列店ページ：スマホでは「店名 → メイン写真 → 文章 → SNS → サブ写真」の順にそろえる */
   .shop-duo > .duo-media{ order:-1; }
+  .sp-br{ display:inline; }
   .spec > div{ grid-template-columns:1fr; }
   .spec dt{ padding:10px 14px; }
   .spec dd{ padding:14px; }
