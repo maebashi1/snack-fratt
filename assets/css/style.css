@@ -795,3 +795,8 @@ iframe{ border:0; display:block; }
   filter:blur(28px) brightness(.7) saturate(1.1);
 }
 .hero-slide img, .band-media img, .page-head-media img{ max-width:none; }
+
+/* 系列店の店舗情報（住所・電話番号・営業時間・定休日）を列でそろえる */
+.shop-info{ display:grid; grid-template-columns:5.2em 1fr; gap:4px 0.8em; margin:0 0 1.4em; line-height:1.8; }
+.shop-info dt{ margin:0; white-space:nowrap; }
+.shop-info dd{ margin:0; }
