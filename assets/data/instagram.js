@@ -5,7 +5,7 @@
    自動生成されています。手で編集しても次回の同期で
    上書きされるのでご注意ください。
 
-   最終更新: 2026-11-09 00:22 UTC
+   最終更新: 2026-11-11 00:57 UTC
    ========================================================= */
 
 window.INSTAGRAM_FEED = {
@@ -14,6 +14,12 @@ window.INSTAGRAM_FEED = {
   username: "fratt2370313",
 
   items: [
+    {
+      image:   "assets/img/insta/ig-18403340905163947.jpg",
+      link:    "https://www.instagram.com/p/Dfj7cXRvY6n/",
+      caption: "🌿",
+      date:    "2026-11-10"
+    },
     {
       image:   "assets/img/insta/ig-17915701293288879.jpg",
       link:    "https://www.instagram.com/p/DfeHxwWDySy/",
@@ -61,12 +67,6 @@ window.INSTAGRAM_FEED = {
       link:    "https://www.instagram.com/p/DecA-VADxZJ/",
       caption: "🌿",
       date:    "2026-10-13"
-    },
-    {
-      image:   "assets/img/insta/ig-18122234149912274.jpg",
-      link:    "https://www.instagram.com/p/DeLsVckPc9e/",
-      caption: "🍷",
-      date:    "2026-10-07"
     }
   ]
 };
